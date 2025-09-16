@@ -102,8 +102,7 @@ export default function WaitlistLanding() {
           preload="metadata"
           style={{ objectPosition: "70% center" }}
         >
-          <source src={`${BASE_PATH}/media/kling_20250914_图生视频_少年正对镜头_注视镜_5699_0.mp4`} type="video/mp4" />
-          <source src={`${BASE_PATH}/media/kling_20250915_图生视频_龙正对镜头_注视镜头_3262_0.mp4`} type="video/mp4" />
+          <source src={`${BASE_PATH}/media/kling - 人龙预览.mp4`} type="video/mp4" />
         </video>
         <img
           src={`${BASE_PATH}/media/goldeye-poster.jpg`}
