@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 
 export default function WaitlistLanding() {
   // ------- State & Refs -------
@@ -87,23 +88,19 @@ export default function WaitlistLanding() {
   const succeeded = status === "success";
   const hasError = status === "error" && !!error;
 
+  const HeroVideo = dynamic(() => import("./HeroVideo"), { ssr: false });
+
   return (
     <main className="relative min-h-screen bg-[#0B0B0B] text-slate-100 overflow-hidden">
-      {/* Background: Fullscreen video */}
+      {/* Background: Fullscreen video (lazy) */}
       <div className="absolute inset-0">
-        <video
+        <HeroVideo
           className="hidden h-full w-full object-cover motion-safe:block"
-          autoPlay
-          muted
-          loop
-          playsInline
           poster={`${BASE_PATH}/media/goldeye-poster.jpg`}
-          aria-label="Background video: a golden eye ignites in darkness; human and dragon overlap"
-          preload="metadata"
+          webmSrc={`${BASE_PATH}/media/golden-eyes-720p.webm`}
+          mp4Src={`${BASE_PATH}/media/golden-eyes-720p.mp4`}
           style={{ objectPosition: "70% center" }}
-        >
-          <source src={`${BASE_PATH}/media/kling - 人龙预览.mp4`} type="video/mp4" />
-        </video>
+        />
         <img
           src={`${BASE_PATH}/media/goldeye-poster.jpg`}
           alt="Minimal black-gold poster: golden iris positioned ~65% from the left (right third)"
